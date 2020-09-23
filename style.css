@@ -64,11 +64,11 @@ img {
 #introduction {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	grid-gap: 3em;
+	grid-gap: 2em;
 }
 
 .project {
-	border: 6px outset #98ff98;
+	border: 5px outset #98ff98;
 	padding: 0.5em;
 }
 
