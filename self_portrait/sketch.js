@@ -8,7 +8,7 @@ function setup(){
 }
 
 function draw(){
-	background('white');
+	background('silver');
 
     // face
     noStroke();
