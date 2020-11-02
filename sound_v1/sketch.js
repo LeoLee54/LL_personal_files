@@ -9,7 +9,6 @@ var rainingNow = true;
 
 function preload() {
 	rainSound = loadSound('rain.wav');
-	birdSound = loadSound('bird.wav');
 }
 
 function setup() {
