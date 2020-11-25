@@ -1,106 +1,82 @@
 /*
-sound v1
+sound v2
 */
 
-var rainSound;
-var birdSound;
-var rain = [];
-var rainingNow = true;
-
 function preload() {
-	rainSound = loadSound('rain.wav');
+  song = loadSound('legend.wav');
 }
 
-function setup() {
+function setup () {
   createCanvas(600, 400);
-  
-  for (i = 0; i < 100; i++) {
-    rain[i] = new Rain(random(0, 600), random(0, -3000));
+  textAlign(CENTER, CENTER);
+  textFont('Courier');
+  textSize(20);
+  r = random(255);
+  g = random(255);
+  b = random(255);
+}
+
+function mousePressed() {
+  var d = dist(280, 290, mouseX, mouseY);
+  if (d < 33) 
+  { 
+    song.play();
+  }
+  if (mouseX > 410 && mouseX < 478 && mouseY > 250 && mouseY < 323) {
+    song.stop();
+}
+if (mouseX > 120 && mouseX < 140 && mouseY > 240 && mouseY < 326) {
+  song.pause();
+  }
+if (mouseX > 80 && mouseX < 135 && mouseY > 270 && mouseY < 325) {
+  song.pause();
+  }
+  if (mouseX > 250 && mouseX < 306 && mouseY > 77 && mouseY < 133){
+  r = random(255);
+  g = random(255);
+  b = random(255);
   }
 }
 
-function draw() {
-  background('skyblue');
-   ground();
+function draw () {
+  background(r, g, b);
   noStroke();
-  fill('white');
-	ellipse(300, 40, 90, 80);
-	ellipse(265, 65, 90, 80);
-	ellipse(350, 45, 90, 80);
-	ellipse(295, 93, 90, 80);
-	ellipse(355, 85, 90, 80);
-	 noStroke();
-  fill('white');
-	ellipse(100, 40, 90, 80);
-	ellipse(66, 77, 90, 80);
-	ellipse(140, 40, 90, 80);
-	ellipse(100, 93, 90, 80);
-	ellipse(160, 80, 90, 80);
-	noStroke();
-  fill('white');
-	ellipse(480, 40, 90, 80);
-	ellipse(455, 65, 90, 80);
-	ellipse(540, 45, 90, 80);
-	ellipse(475, 100, 90, 80);
-	ellipse(540, 85, 90, 80);
-  if (rainingNow == true) {
-    for (i = 0; i < rain.length; i++) {
-      rain[i].dropRain();
-      rain[i].splash();
-    }
-  } 
-}
-
-function ground() {
-  noStroke();
-  fill('#A6918D');
-  rect(0, 330, 600, 330);
-}
-
-function Rain(x, y) {
-  this.x = x;
-  this.y = y;
-  this.length = 18;
-  this.r = 0;
-  this.opacity = 240;
-
-
-  this.dropRain = function() {
-    noStroke();
-    fill(255);
-    ellipse(this.x, this.y, 2, this.length);
-    this.y = this.y + 6
-    if (this.y > 340) {
-      this.length = this.length - 5;
-    }
-    if (this.length < 0) {
-      this.length = 0;
-    }
+fill('#00FF00');
+text("Start Button", 280, 350)
+  var d = dist(280, 290, mouseX, mouseY);
+  if (d < 33) {
+    fill('#33FFD6');
   }
+  circle(280, 290, 66);
 
-  this.splash = function() {
-    strokeWeight(2);
-    stroke(200, this.opacity);
-    noFill();
-    if (this.y > 350) {
-      ellipse(this.x, 350, this.r * 2, this.r / 2);
-      this.r++;
-      this.opacity = this.opacity - 10;
-      if (this.opacity < 0) {
-        this.y = random(0, -100);
-        this.length = 15;
-        this.r = 0;
-        this.opacity = 200;
-      }
-    }
+  fill('red');
+  text("Stop Button", 450, 350)
+if (mouseX > 410 && mouseX < 478 && mouseY > 250 && mouseY < 323) {
+    fill('#33FFD6');
   }
-}
+  rect(410, 257, 66, 66);
 
-function keyPressed() {
-	if (keyCode == 13) {
-		rainSound.play();
-	}
-	if (keyCode == 32) {
-		rainSound.pause();
-	}
+fill('yellow');
+text("Pause Button", 108, 350)
+if (mouseX > 80 && mouseX < 135 && mouseY > 270 && mouseY < 325) {
+    fill('#33FFD6');
+  }
+  beginShape(QUADS);
+vertex(80, 270);
+vertex(80, 325);
+vertex(100, 325);
+vertex(100, 270);
+vertex(115, 270);
+vertex(115, 325);
+vertex(135, 325);
+vertex(135, 270);
+vertex(155, 270);
+vertex(155, 325);
+endShape();
+fill('#8258FA')
+text("Change Background", 270, 150)
+if (mouseX > 250 && mouseX < 306 && mouseY > 77 && mouseY < 133) {
+    fill('#33FFD6');
+  }
+quad(258, 88, 306, 77, 289, 120, 250, 133);
 }
