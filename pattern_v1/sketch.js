@@ -1,10 +1,7 @@
 /*
 pattern_v1
 Generative Landscape
-https://editor.p5js.org/owenroberts/sketches/ELfjvaock
 */
-
-// https://p5js.org/zh-Hans/examples/form-star.html
 
 var r = 237, g = 224, b = 52;
 var speed = 2;
