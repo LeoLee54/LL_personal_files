@@ -4,37 +4,31 @@ Generative pattern
 */
 
 function setup() {
-  createCanvas(640, 460);
-  pattern();
+  createCanvas(640, 460)
 }
 
-function mousePressed() {
-  pattern();
+function draw() {
+  background("gray");
+  for (var i = 0; i <= 15; i++) {
+    for (var j = 0; j <= 15; j++) {
+      catHead(20 + (40 * i), 34 + (50 * j));
+    }
+  }
 }
 
-function pattern() {
-  background("snowwhite");
-
-  let w = random(20, 50);
-  let h = w;
-  let horizon = random(height/2, height + w);
-
-  for (let x = 0; x <= width + w; x += w) { // columns
-    for (let y = 0; y <= height + h; y += h) { // rows
-
-let r = random(255);
-let g = random(255);
-let b = random(255);
-
-      fill(r, g, b, 60);
+function catHead(x, y) {
+  if (mouseIsPressed) {
+    noStroke();
+    fill(random(255), random(255), random(255));
+    ellipse(x, y, 30, 30);
+    triangle(x - 12, y - 25, x - 15, y, x - 2, y - 15);
+    triangle(x + 12, y - 25, x + 15, y, x + 2, y - 15);
+    fill(255);
+    ellipse(x - 5, y - 3, 6, 6);
+    ellipse(x + 5, y - 3, 6, 6);
+  } else {
       noStroke();
-
-      ellipse(
-        x + random(10, 40), 
-        y + random(20, 60), 
-        w + random(40)
-      );
-      
-    } 
+    fill(random(255), random(255), random(255));
+    ellipse(x, y, 30, 30);
   }
 }
